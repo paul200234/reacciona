@@ -1,45 +1,32 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Profile } from './componentss/Profile'
 import { Skill } from './componentss/Skill'
 import { Header } from './componentss/Header'
+import { Footer } from './componentss/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const skillz = ["HTML", "CSS", "JavaScript", "React", "Vite"];
 
+  const [show, setShow] = useState(false);
+
+  function changeShow(){
+    setShow(!show);
+  }
+  
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
       <Header />
       <Profile name="Alexandru Paul Adam" age={25} profession="Web Developer" />
+      <button onClick={changeShow}>Skills</button>
+      {show && (
       <ul>
-        <Skill text="HTML" />
-        <Skill text="CSS" />
-        <Skill text="JavaScript" />
-        <Skill text="React" />
-        <Skill text="Vite" />
-      </ul>
+        {skillz.map((skill, index) => (
+          <Skill key={index} text={skill} />
+        ))}
+      </ul>)}
+      <Footer/>
     </>
   )
 }
