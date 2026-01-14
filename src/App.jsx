@@ -4,6 +4,7 @@ import { Profile } from './componentss/Profile'
 import { Skill } from './componentss/Skill'
 import { Header } from './componentss/Header'
 import { Footer } from './componentss/Footer'
+import { Contact } from './componentss/Contact'
 
 function App() {
   const skillz = ["HTML", "CSS", "JavaScript", "React", "Vite"];
@@ -26,6 +27,7 @@ function App() {
           <Skill key={index} text={skill} />
         ))}
       </ul>)}
+      <Contact email="paul200234@gmail.com" phone="+1234567890" />
       <Footer/>
     </>
   )
